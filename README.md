@@ -3,9 +3,8 @@
 ## Install SSP dependencies
 
 ```
-git@github.com:ict-spitfire/smart-service-proxy.git
-cd smart-service-proxy
-mvn install
+git clone git@github.com:boldt/SSP.git
+cd SSP
 ```
 
 ## Build
