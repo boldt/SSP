@@ -3,13 +3,16 @@
 ## Install SSP dependencies
 
 ```
+git clone git@github.com:projekt-internet-technologien/smart-service-proxy.git
+cd smart-service-proxy
+npm install
+```
+
+## Clone and build
+
+```
 git clone git@github.com:boldt/SSP.git
 cd SSP
-```
-
-## Build
-
-```
 mvn package
 ```
 
