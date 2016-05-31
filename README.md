@@ -16,6 +16,12 @@ cd SSP
 mvn package
 ```
 
+## Configure
+
+Open `ssp.properties`:
+
+* `coap.port` configures the port of the CoAP endpoint (default: 5683)
+
 ## Run
 
 ```
