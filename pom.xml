@@ -8,32 +8,14 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>eu.spitfire</groupId>
+			<groupId>eu.spitfire.ssp</groupId>
 			<artifactId>ssp-core</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.jena</groupId>
-			<artifactId>jena-tdb</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.jena</groupId>
-			<artifactId>jena-spatial</artifactId>
-			<version>1.0.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.vividsolutions</groupId>
-			<artifactId>jts</artifactId>
-			<version>1.13</version>
-		</dependency>
-
-		<dependency>
-			<groupId>eu.spitfire</groupId>
-			<artifactId>ssp-jena-tdb</artifactId>
+			<groupId>eu.spitfire.ssp</groupId>
+			<artifactId>ssp-with-jena-tdb-cache</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
@@ -44,8 +26,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
