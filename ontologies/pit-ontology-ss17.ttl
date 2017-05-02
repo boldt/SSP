@@ -1,0 +1,165 @@
+@prefix : <https://pit.itm.uni-luebeck.de/OWLPATH#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://pit.itm.uni-luebeck.de/OWLPATH> .
+
+<https://pit.itm.uni-luebeck.de/OWLPATH> rdf:type owl:Ontology ;
+                                          dc:title "Praktikum Internet Technologien SS17 Ontology" ;
+                                          dc:description """
+		This is the basic ontology for the \"Praktikum Internet Technologien\" in SS17. 
+		For further information see:
+		 http://www.w3.org/TR/2004/REC-owl-guide-20040210/#StructureOfOntologies 
+		 http://www.semaweb.org/dokumente/w3/TR/2004/REC-owl-guide-20040210-DE.html#DefiningProperties.
+		""" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasComponent
+:hasComponent rdf:type owl:ObjectProperty ;
+              rdfs:domain :Device ;
+              rdfs:range :Component ;
+              dc:description """
+			Specifies link to component of the device.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasStatus
+:hasStatus rdf:type owl:ObjectProperty ;
+           rdfs:domain :Component ;
+           rdfs:range :Status ;
+           dc:description """
+			Links the status object which stores component-informatione in rdf-store.
+		""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasDescription
+:hasDescription rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Component ;
+                rdfs:range xsd:string ;
+                dc:description """
+			Short description how to use the component.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasGroup
+:hasGroup rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Device ;
+          rdfs:range xsd:string ;
+          dc:description """
+			In case of use at the \"Internet Technologie Praktikum\" in SS15 you can take something like SVA_YOURGROUPNUMBER-SS15. Else use what you want here.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasIP
+:hasIP rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Device ;
+       rdfs:range xsd:string ;
+       dc:description """
+			IP of the device.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasLabel
+:hasLabel rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Device ;
+          rdfs:range xsd:string ;
+          dc:description """
+			Some cool name for the device.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasScaleUnit
+:hasScaleUnit rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Status ;
+              rdfs:range xsd:string ;
+              dc:description """
+			Describes the way the status-value has to be interpreted (so e.g. degree celsius for temperature, etc.).
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasTrigger
+:hasTrigger rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Component ;
+            rdfs:range xsd:anyURI ;
+            dc:description """
+			If the trigger is called the component returns a new value (simple pull).
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Status ;
+          rdfs:range xsd:double ;
+          dc:description """
+			Value of the sensor the last time it was updated (or saved into rdf if time interval is too fast). 
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#isActor
+:isActor rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Component ;
+         rdfs:range xsd:boolean ;
+         dc:description """
+			Component has also actor functionality.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#isType
+:isType rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Component ;
+        rdfs:range xsd:string ;
+        dc:description """
+			Component type, specified as unique product-id of the specific hardware device the component is.
+		""" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#lastModified
+:lastModified rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Component ;
+              rdfs:range xsd:dateTime ;
+              dc:description """
+			Datetime of the last moment the value in rdf-store has changed (was updated).
+		""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#Component
+:Component rdf:type owl:Class ;
+           rdfs:comment "Object representing component of a device." ;
+           rdfs:label "Component" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#Device
+:Device rdf:type owl:Class ;
+        rdfs:comment "Object for device-representation." ;
+        rdfs:label "Device" .
+
+
+###  https://pit.itm.uni-luebeck.de/OWLPATH#Status
+:Status rdf:type owl:Class ;
+        rdfs:comment "Helper-object which saves the sensor-detected status." ;
+        rdfs:label "Status" .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
